@@ -1,5 +1,5 @@
 
-var passwordValue = [];
+var passwordValue = []; //Array to hold true or false returns from user input
 var passLength = prompt("Enter a number from 8 to 128 for the length of your password:");
 console.log(passLength);
 var passLow = confirm("Include lowercase letters?");
@@ -10,7 +10,7 @@ var passNum = confirm("Include Numbers?");
 console.log(passNum);
 var passSC = confirm("Include special characters?");
 console.log(passSC);
-var passOptions;
+// Pass a true or false value to passvalue array
 if (passLow === true) {
   passwordValue.push(passLow);
   console.log("lowercase letters");
@@ -37,7 +37,7 @@ if (passSC === true) {
 }
 console.log(`Your ${passLength} character password includes: ${passwordValue}`)
 
-var passArr = [];
+var passArr = []; //array to include any chosen password options
 var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -55,8 +55,10 @@ if (passwordValue[2] === true) {
 if (passwordValue[3] === true) {
   passArr.push(specialChar);
 }
-console.log(passArr);
 
+
+console.log(passArr); //to log all characters going into random password
+// function to jumble selected array options
 function generatePassword(passArr, passLength) {
   var password = "";
   for (var i = 0; i < passLength; i++)
