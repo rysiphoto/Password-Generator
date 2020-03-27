@@ -1,10 +1,5 @@
 
-
-
-
-var generateBtn = document.querySelector("#generate");
-var password = "";
-var passDB = [];
+var passwordValue = [];
 var passLength = prompt("Enter a number from 8 to 128 for the length of your password:");
 console.log(passLength);
 var passLow = confirm("Include lowercase letters?");
@@ -17,74 +12,59 @@ var passSC = confirm("Include special characters?");
 console.log(passSC);
 var passOptions;
 if (passLow === true) {
-  passDB.push(passLow);
+  passwordValue.push(passLow);
   console.log("lowercase letters");
 } else {
-  passDB[0] = false;
+  passwordValue[0] === false;
 }
 if (passUp === true) {
-  passDB.push(passUp);
+  passwordValue.push(passUp);
   console.log("uppercase letters");
 } else {
-  passDB[1] = false;
+  passwordValue[1] === false;
 }
 if (passNum === true) {
-  passDB.push(passNum);
+  passwordValue.push(passNum);
   console.log("numbers");
 } else {
-  passDB[2] = false;
+  passwordValue[2] === false;
 }
 if (passSC === true) {
-  passDB.push(passSC);
+  passwordValue.push(passSC);
   console.log("special characters");
 } else {
-  passDB[3] = false;
+  passwordValue[3] === false;
 }
-console.log(`Your ${passLength} character password includes: ${passDB}`)
+console.log(`Your ${passLength} character password includes: ${passwordValue}`)
 
-{
-  var passLInfoLowDB = ['a', 'b', 'c', 'd', 'e', 'f', ghijklmnopqrstuvwxyz"];
-  var passInfoUpDB = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
-  var passInfoNumDB = ["0123456789"];
-  var passInfoCharDB = ['"', '!', '\', "#", "$", "%", "&", "'", '(', ')', '*', 
-  '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`',
-    '{', '|', '}', '~'];
+var passArr = [];
+var lowercase = ['a', 'b', 'c', 'd', 'e', 'f', "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var number = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specialChar = ['"', '!', "#", "$", "%", "&", '(', ')', '*', '+', ',', '-', '.', ':', ';', '<', '=', '>', '?', '@', '[', ']', '^', '_', '`', '{', '|', '}', '~'];
+
+if (passwordValue[0] === true) {
+  passArr.push(lowercase);
+}
+if (passwordValue[1] === true) {
+  passArr.push(upper);
+}
+if (passwordValue[2] === true) {
+  passArr.push(number);
+}
+if (passwordValue[3] === true) {
+  passArr.push(specialChar);
+}
+console.log(passArr);
+
+function generatePassword(passArr, passLength) {
+  var password = "";
+  for (var i = 0; i < passLength; i++)
+    password += passArr.length;
+  console.log(password);
+  return password;
 }
 
-Math.floor(Math.random() * 10)
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+var generateBtn = document.querySelector("#generate");
 
-}
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
-// GIVEN I need a new, secure password
-
-// WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-
-// WHEN prompted for character types to include in the password
-// THEN I choose lowercase, uppercase, numeric, and / or special characters
-
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
