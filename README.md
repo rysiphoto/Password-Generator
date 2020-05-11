@@ -25,7 +25,7 @@
 ##### node index
 ---
 ### **Image**
-<img src="assets/rpg.png">
+<img src="Assets/rpg.png">
 
 
 ##### 
